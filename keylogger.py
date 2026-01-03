@@ -6,6 +6,11 @@ from colorama import init, Fore, Style
 # Initialize colorama for Windows
 init(autoreset=True)
 
+def set_window_title(title):
+    """Set the command prompt window title"""
+    if os.name == 'nt':  # Windows
+        os.system(f'title {title}')
+
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -49,6 +54,7 @@ def on_press(key):
         pass
 
 def main():
+    set_window_title("KEYLOGGER - Active Listening")
     clear_screen()
     print_banner()
     
